@@ -1,0 +1,23 @@
+#the mod name as displayed in-game
+displayName: "Zero-Era:Genesis"
+
+#the internal name of your mod
+name: "zeg_mod"
+
+#your name
+author: "Lynia671/Crystal_Dust671 and PIX-12015"
+
+#the fully qualified main class of the mod
+main: "zegMod.zegMod"
+
+#the mod description as seen in the mod dialog
+description: "Living in under the zero."
+
+#the mod version
+version: 0.4.1
+
+#the minimum game build required to run this mod
+minGameVersion: 160.3
+
+#this is a java mod
+java: true
