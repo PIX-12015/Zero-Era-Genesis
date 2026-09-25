@@ -1,4 +1,4 @@
-package zegMod.content;
+package zeg.content;
 
 import arc.struct.Seq;
 import mindustry.content.*;

@@ -8,7 +8,7 @@ name: "zeg_mod"
 author: "Lynia671/Crystal_Dust671 and PIX-12015"
 
 #the fully qualified main class of the mod
-main: "zegMod.zegMod"
+main: "zeg.ZegMod"
 
 #the mod description as seen in the mod dialog
 description: "Living in under the zero."

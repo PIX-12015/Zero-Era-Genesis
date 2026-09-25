@@ -1,4 +1,4 @@
-package zegMod.content;
+package zeg.content;
 
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;

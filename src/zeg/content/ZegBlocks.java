@@ -1,4 +1,4 @@
-package zegMod.content;
+package zeg.content;
 
 import mindustry.content.Items;
 import mindustry.type.Category;
@@ -21,8 +21,9 @@ public class ZegBlocks {
         Attribute attrRawIce = Attribute.add("raw-ice");
     
         coreOne = new CoreBlock("core-one"){{
-            requirements(Category.effect, BuildVisibility.coreZoneOnly, with(Items.copper, 1000, Items.lead, 800));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 1000, Items.lead, 800));
             alwaysUnlocked = true;
+
 
             isFirstTier = true;
             unitType = ZegUnitType.delta;
@@ -32,10 +33,12 @@ public class ZegBlocks {
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
+
+            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreTwo = new CoreBlock("core-two"){{
-            requirements(Category.effect, BuildVisibility.coreZoneOnly, with(Items.copper, 2000, Items.lead, 1800));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 2000, Items.lead, 1800));
             alwaysUnlocked = false;
 
             unitType = ZegUnitType.epsilon;
@@ -45,10 +48,12 @@ public class ZegBlocks {
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
+
+            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreThree = new CoreBlock("core-three"){{
-            requirements(Category.effect, BuildVisibility.coreZoneOnly, with(Items.copper, 4000, Items.lead, 3500));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 4000, Items.lead, 3500));
             alwaysUnlocked = false;
 
             unitType = ZegUnitType.zeta;
@@ -59,10 +64,12 @@ public class ZegBlocks {
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
+
+            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreFour = new PowerCoreBlock("core-four"){{
-            requirements(Category.effect, BuildVisibility.coreZoneOnly, with(Items.copper, 5000, Items.lead, 4000));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 5000, Items.lead, 4000));
             alwaysUnlocked = false;
 
             unitType = ZegUnitType.delta;
@@ -74,10 +81,12 @@ public class ZegBlocks {
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
+
+            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreFive = new PowerCoreBlock("core-five"){{
-            requirements(Category.effect, BuildVisibility.coreZoneOnly, with(Items.copper, 5000, Items.lead, 4000));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 5000, Items.lead, 4000));
             alwaysUnlocked = false;
 
             unitType = ZegUnitType.delta;
@@ -89,6 +98,8 @@ public class ZegBlocks {
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
+
+            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         //环境

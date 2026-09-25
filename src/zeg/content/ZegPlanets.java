@@ -1,4 +1,4 @@
-package zegMod.content;
+package zeg.content;
 
 import arc.graphics.Color;
 import mindustry.content.Planets;

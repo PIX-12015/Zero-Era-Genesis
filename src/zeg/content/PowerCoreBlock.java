@@ -1,4 +1,4 @@
-package zegMod.content;
+package zeg.content;
 
 import mindustry.world.blocks.storage.CoreBlock;
 

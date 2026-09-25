@@ -1,6 +1,6 @@
-package zegMod;
+package zeg;
 
-import zegMod.content.*;
+import zeg.content.*;
 import mindustry.mod.Mod;
 
 public class ZegMod extends Mod {
