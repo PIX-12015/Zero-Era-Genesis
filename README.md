@@ -1,9 +1,9 @@
 # Zero-Era-Genesis
 此仓库的创建者为 PIX-12015
 
-项目总负责人兼总策划：Lynia671
+总负责人兼总策划：Lynia671
 
-
+程序 / 美术：PIX-12015
 
 旧版本（已停更）： https://github.com/Lynia671/Zero-Era_Genesis
 
@@ -16,7 +16,13 @@
 
 [===========================]
 
+The creator of this repository is PIX-12015
 
+Overall leader and chief planner: Lynia671
+
+Programmer / Sprite Artist: PIX-12015
+
+Old version (no longer updated): https://github.com/Lynia671/Zero-Era_Genesi
 
 After future releases, please submit feedback promptly if you encounter any bugs while playing.
 
