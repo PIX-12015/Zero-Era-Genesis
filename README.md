@@ -3,6 +3,8 @@
 
 总负责人兼总策划：Lynia671
 
+副策划：PIX-12015
+
 程序 / 美术：PIX-12015
 
 旧版本（已停更）： https://github.com/Lynia671/Zero-Era_Genesis
