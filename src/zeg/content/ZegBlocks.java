@@ -15,7 +15,10 @@ import mindustry.world.meta.BuildVisibility;
 import static mindustry.type.ItemStack.with;
 
 public class ZegBlocks {
-    public static Block coreOne, coreTwo, coreThree, coreFour, coreFive,
+    public static Block
+
+            coreOne, coreTwo, coreThree, coreFour, coreFive, coreSix,
+
             windPoweredDrill, mechanicalDrill, iceWallCrusher, heavyIceWall, riverIce,
             permafrostWall, laserDrillingMachine, frozenStoneWall, oreZeroIron;
     public static void load () {
@@ -35,7 +38,7 @@ public class ZegBlocks {
             requiresCoreZone = false;
             incinerateNonBuildable = true;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreTwo = new CoreBlock("core-two"){{
@@ -45,12 +48,12 @@ public class ZegBlocks {
             unitType = ZegUnitType.epsilon;
             health = 4000;
             itemCapacity = 8000;
-            size = 4;
+            size = 3;
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreThree = new CoreBlock("core-three"){{
@@ -61,46 +64,63 @@ public class ZegBlocks {
             health = 6000;
             armor = 4;
             itemCapacity = 10000;
-            size = 5;
+            size = 4;
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreFour = new PowerCoreBlock("core-four"){{
-            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 5000, Items.lead, 4000));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 5000, Items.lead, 4500));
             alwaysUnlocked = false;
 
             unitType = ZegUnitType.delta;
             health = 8000;
             armor = 8;
             itemCapacity = 14000;
-            size = 6;
+            size = 4;
             powerProduction = 5f; // 每 tick 5 单位电力 = 300/秒
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         coreFive = new PowerCoreBlock("core-five"){{
-            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 6000, Items.lead, 4500));
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 6000, Items.lead, 5000));
             alwaysUnlocked = false;
 
             unitType = ZegUnitType.delta;
             health = 10000;
             armor = 16;
             itemCapacity = 18000;
-            size = 7;
+            size = 5;
             powerProduction = 7f;
 
             requiresCoreZone = false;
             incinerateNonBuildable = true;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
+        }};
+
+        coreSix = new PowerCoreBlock("core-six"){{
+            requirements(Category.effect, BuildVisibility.shown, with(Items.copper, 6500, Items.lead, 5500));
+            alwaysUnlocked = false;
+
+            unitType = ZegUnitType.delta;
+            health = 10000;
+            armor = 16;
+            itemCapacity = 18000;
+            size = 5;
+            powerProduction = 7f;
+
+            requiresCoreZone = false;
+            incinerateNonBuildable = true;
+
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         //环境
@@ -139,7 +159,7 @@ public class ZegBlocks {
             liquidCapacity = 10f;
             buildTime = 19.1f;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         mechanicalDrill = new Drill("mechanical-drill"){{
@@ -154,7 +174,7 @@ public class ZegBlocks {
             liquidCapacity = 10f;
             buildTime = 17.1f;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         iceWallCrusher = new WallCrafter("ice-wall-crusher"){{
@@ -169,7 +189,7 @@ public class ZegBlocks {
             attribute = ZegItems.attrRawIce;  // 自定义 Attribute
             output = ZegItems.rawIce;
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
         laserDrillingMachine = new BeamDrill("laser-drilling-machine"){{
@@ -181,7 +201,7 @@ public class ZegBlocks {
             tier = 2; // permafrost.hardness 需要 <= 这个值
             range = 5; // 光束射程（格数）
 
-            shownPlanets.add(ZegPlanets.svitton);
+//            shownPlanets.add(ZegPlanets.svitton);
         }};
 
 

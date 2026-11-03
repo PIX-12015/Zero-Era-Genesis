@@ -1,26 +1,27 @@
 package zeg.content;
 
 import arc.graphics.Color;
+import mindustry.content.Blocks;
 import mindustry.content.Planets;
 import mindustry.game.Team;
 import mindustry.graphics.g3d.HexSkyMesh;
 import mindustry.graphics.g3d.MultiMesh;
 import mindustry.graphics.g3d.NoiseMesh;
 import mindustry.type.Planet;
-
+import mindustry.world.Block;
 
 public class ZegPlanets {
     public static Planet svitton;
 
     public static void load() {
+        // sectorSize = 3 → PlanetGrid.tileCount(3) = 10 * 3^3 + 2 = 272 个区块
+        // 所以 startSector = 123 是合法的，不用改
         svitton = new Planet("svitton", Planets.sun, 1f, 3){{
             alwaysUnlocked = true;
             orbitRadius = 130f;
             orbitSpacing = 1f;
             startSector = 123;
             sectorSeed = 27290;
-            atmosphereRadIn = 0.02f;   // 内半径偏移
-            atmosphereRadOut = 0.5f;   // 外半径偏移（增大此值使大气层更厚）
 
             minZoom = 0.6f;
             maxZoom = 3f;
@@ -28,9 +29,8 @@ public class ZegPlanets {
             tidalLock = true;
             accessible = true;
             visible = true;
-//            bloom = false;
-//            updateLighting = false;
 
+            // 大气层（原来重复写了两遍，已删去上面那组）
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
             hasAtmosphere = true;
@@ -38,15 +38,28 @@ public class ZegPlanets {
             landCloudColor = Color.valueOf("8a95a8");
             iconColor = Color.valueOf("a5dbef");
 
+            // 原来是 false：PlanetGenerator.allowLanding() 第一句就检查它，
+            // 设 false 又没有 SectorPreset（仓库里没有 maps/），编号区块全进不去。
+            allowLaunchToNumbered = true;
             allowLaunchSchematics = true;
-            allowLaunchToNumbered = false;
             allowLaunchLoadout = false;
             allowSectorInvasion = false;
             allowWaves = true;
             clearSectorOnLose = true;
-            prebuildBase = false;
 
-            defaultCore = ZegBlocks.coreOne;  // 替换为你的 core-zero Block 引用
+            // ── 修复「一落地就死」的两处 ──────────────────────────────
+            // ① defaultCore 不能用自定义核心！
+            //    Schematics 里只给 4 个原版 loadout 注册过（Loadouts.basicShard
+            //    / basicFoundation / basicNucleus / basicBastion）。
+            //    Universe.getLoadout(coreOne) → schematics.getLoadouts(coreOne)
+            //    是空 Seq → 返回 null → 落地不放核心 → 立刻判负。
+            //    改回原版 coreShard，先能进游戏；coreOne~coreFive 继续留在
+            //    科技树里，作为星球上可研究 / 可建造的升级核心。
+            defaultCore = Blocks.coreShard;
+
+            // ② prebuildBase 改回 true：落地时把核心周围的方块清掉，
+            //    避免生成器放的静态墙把出生点堵死。
+            prebuildBase = true;
 
             ruleSetter = r -> {
                 r.waveTeam = Team.green;
@@ -90,4 +103,19 @@ public class ZegPlanets {
 
             generator = new SvittonPlanetGenerator();
         }};
-    }}
+
+        // ── 方块登记到本星球 ────────────────────────────────────────────────
+        // ZegMod.loadContent() 里 ZegBlocks.load() 早于 ZegPlanets.load()，
+        // 所以 ZegBlocks 里写 shownPlanets.add(ZegPlanets.svitton) 时拿到的是 null。
+        // 统一挪到这里登记（ZegBlocks.java 里那 9 行已删除）。
+        Block[] planetBlocks = {
+                ZegBlocks.coreOne, ZegBlocks.coreTwo, ZegBlocks.coreThree,
+                ZegBlocks.coreFour, ZegBlocks.coreFive,
+                ZegBlocks.windPoweredDrill, ZegBlocks.mechanicalDrill,
+                ZegBlocks.iceWallCrusher, ZegBlocks.laserDrillingMachine
+        };
+        for(Block b : planetBlocks){
+            if(b != null) b.shownPlanets.add(svitton);
+        }
+    }
+}
