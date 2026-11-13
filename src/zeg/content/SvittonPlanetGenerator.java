@@ -37,8 +37,8 @@ import mindustry.type.Weather.WeatherEntry;
  *    这里改用 localNoise()：直接对网格坐标做 2D 噪声，结果可预测。
  *
  * ③ 加了 Log.info 诊断
- *    日志里出现 "[ZEG] SvittonPlanetGenerator.generate() 已执行" 才说明
- *    这份代码真的跑了。没出现 = 游戏读的是存档里缓存的旧地图。
+ *    日志里出现 "[ZEG] SvittonPlanetGenerator.generate() 已执行"
+ *    才说明这份代码真的跑了。没出现 = 游戏读的是存档里缓存的旧地图。
  */
 public class SvittonPlanetGenerator extends PlanetGenerator {
 
